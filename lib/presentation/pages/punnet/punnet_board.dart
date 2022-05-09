@@ -19,6 +19,7 @@ class _PunnetBoardState extends State<PunnetBoard> {
     _genotipo1Controller.clear();
     _genotipo2Controller.clear();
     _formKey.currentState?.reset();
+    Navigator.pop(context);
   }
 
   @override
