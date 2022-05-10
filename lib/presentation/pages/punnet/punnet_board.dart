@@ -15,13 +15,6 @@ class _PunnetBoardState extends State<PunnetBoard> {
   final _genotipo2Controller = TextEditingController(text: '');
   final _formKey = GlobalKey<FormState>();
 
-  void clearForm() {
-    _genotipo1Controller.clear();
-    _genotipo2Controller.clear();
-    _formKey.currentState?.reset();
-    Navigator.pop(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<QuadroPunnetController>(context);
@@ -98,6 +91,7 @@ class _PunnetBoardState extends State<PunnetBoard> {
                       controller.setGenotipo(_genotipo1Controller.text, 0);
                       controller.setGenotipo(_genotipo2Controller.text, 1);
                       controller.calcular();
+                      FocusScope.of(context).unfocus();
                     }
                   },
                   child: const Text('Calcular'),
